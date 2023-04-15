@@ -201,8 +201,23 @@ async def pokemon(ctx):
     print(pokemon)
     await channel.send(file=discord.File(pokemon))
 
+#gives user roles
+@bot.command()
+async def gimme(ctx, *, rolename):
+    role = discord.utils.get(ctx.guild.roles, name=rolename)
+    if role is None:
+        await ctx.send(f"Sorry, the {rolename} role does not exist.")
+        return
+    try:
+        await ctx.author.add_roles(role)
+        await ctx.send(f"{ctx.author.mention}, you now have the {role.name} role!")
+    except discord.Forbidden:
+        await ctx.send("Sorry, I don't have permission to assign that role.")
+    except discord.HTTPException as e:
+        await ctx.send(f"An error occurred: {e}")
+
 #bot mentions role and send gif
-@bot.command(name= 'hopon')
+@bot.command(name = 'hopon')
 async def hopon(ctx, arg):
     if str(arg) is not None:
         roles = role_ids.get(str(arg))
