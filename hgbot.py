@@ -110,6 +110,24 @@ class CustomHelpCommand(commands.HelpCommand):
 
 bot.help_command = CustomHelpCommand()
 
+#burger king response
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    if message.author.bot: return
+    if ("burger king" or "Burger King") in message.content.lower():
+        await message.channel.send("I'm in the drive-thru of Burger King\nCan I please get a Whopper Jr. with onion rings?\nMake it a meal so I can get a drink\nNo, I'm not finished, that's not everything\nCan I please get a Double Whopper with no cheese?\nCan I please get a number two with a large drink?\nI got money so I don't care how much it costs me\nSo just throw in some extra friеs, don't make them salty\n\nAll this cheese gonna makе my booty drip drip\nI'm lactose intolerant, I don't sip milk\nIf I see a sight of cheese, I'ma trip trip\nI'ma sit on your toilet seat and doodoo then dip\nSo you got my lil' Whopper Jr.? (I didn't forget that)\nAnd you got my Double Whopper? (I didn't forget that)\nWhat about my onion rings? (Hold on, you can sit back)\nBurger King, they know me now\nCheese, I don't want that\n(Grrr) And I'm getting hungry now\nI know you heard that\nWaiting for my onion rings so I don't have to turn back\nBurger King, don't play with me, y'all nuggets is so trash\nNuggets taste like rabbit nipples, why y'all even serve that?\nBetter stop playing and just give me all of my food\nEither I pay you right now or leave the drive-thru\nGave me the bag and then I took a bite of my food\nThere's cheese in my mouth (I'm gonna doodoo)\n\nI'm in the drive-thru of Burger King\nMan, they just gave me a Whopper Jr. with hella cheese\nMade it a meal, so yes, I got my drink\nBut why they gon' put cheese on everything?\nThey put cheese on my Double Whopper with no cheese\nI'll be takin' a number two in the morning\nHold on, can I please be excused for a moment?\nThe cheese already in my body, booty farting (I farted)\n\nWait, di- did you just fart in my drive-thru?\nYo, com- yo, you can't be serious\nIt's just cheese\nIt's just cheese\nQueso, cheese")
+
+#chickfila response
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    if message.author.bot: return
+    if ("chickfila" or "chick-fil-a" or "ChickFilA" or "Chick-Fil-A") in message.content.lower():
+        await message.channel.send("Closed on Sundays.")
+
 #bot joins vc when user joins to play sound
 @bot.event
 async def on_voice_state_update(member, before, after):
